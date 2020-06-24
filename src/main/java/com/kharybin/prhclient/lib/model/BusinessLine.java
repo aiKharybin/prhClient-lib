@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class LineOfBusiness {
+public class BusinessLine {
 
     private String code;
     private String description;

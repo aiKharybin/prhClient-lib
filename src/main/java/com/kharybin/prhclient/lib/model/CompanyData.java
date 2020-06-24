@@ -13,6 +13,6 @@ public class CompanyData {
     private String name;
     private String website;
     private Address address;
-    private LineOfBusiness business;
+    private BusinessLine businessLine;
 }
 
