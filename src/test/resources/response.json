@@ -1,0 +1,477 @@
+{
+  "type": "fi.prh.opendata.bis",
+  "version": "1",
+  "totalResults": -1,
+  "resultsFrom": 0,
+  "previousResultsUri": null,
+  "nextResultsUri": null,
+  "exceptionNoticeUri": null,
+  "results": [
+    {
+      "businessId": "2627773-7",
+      "name": "Silmäasema Oyj",
+      "registrationDate": "2014-06-18",
+      "companyForm": "OYJ",
+      "detailsUri": null,
+      "liquidations": [
+
+      ],
+      "names": [
+        {
+          "order": 0,
+          "version": 1,
+          "name": "Silmäasema Oyj",
+          "registrationDate": "2017-05-12",
+          "endDate": null,
+          "source": 1
+        },
+        {
+          "order": 0,
+          "version": 2,
+          "name": "SFG Holding Oy",
+          "registrationDate": "2014-06-27",
+          "endDate": "2017-05-12",
+          "source": 1
+        }
+      ],
+      "auxiliaryNames": [
+        {
+          "order": 4,
+          "version": 1,
+          "name": "SFG BidCo",
+          "registrationDate": "2017-01-01",
+          "endDate": null,
+          "source": 1
+        }
+      ],
+      "addresses": [
+        {
+          "careOf": null,
+          "street": "Atomitie 5 A",
+          "postCode": "00370",
+          "type": 1,
+          "version": 2,
+          "city": "HELSINKI",
+          "country": null,
+          "registrationDate": "2019-05-31",
+          "endDate": "2019-08-28",
+          "language": "FI",
+          "source": 0
+        },
+        {
+          "careOf": null,
+          "street": "Radiokatu 3",
+          "postCode": "00240",
+          "type": 1,
+          "version": 1,
+          "city": "HELSINKI",
+          "country": null,
+          "registrationDate": "2019-08-29",
+          "endDate": null,
+          "language": "FI",
+          "source": 0
+        },
+        {
+          "careOf": null,
+          "street": "Radiokatu 3",
+          "postCode": "00240",
+          "type": 2,
+          "version": 2,
+          "city": "HELSINKI",
+          "country": null,
+          "registrationDate": "2019-08-29",
+          "endDate": "2019-08-28",
+          "language": "FI",
+          "source": 0
+        },
+        {
+          "careOf": "Talousjohtaja",
+          "street": "Radiokatu 3",
+          "postCode": "00240",
+          "type": 2,
+          "version": 1,
+          "city": "HELSINKI",
+          "country": null,
+          "registrationDate": "2019-08-29",
+          "endDate": null,
+          "language": "FI",
+          "source": 0
+        }
+      ],
+      "companyForms": [
+        {
+          "version": 1,
+          "name": "Julkinen osakeyhtiö",
+          "type": "OYJ",
+          "registrationDate": "2017-05-12",
+          "endDate": null,
+          "language": "FI",
+          "source": 1
+        },
+        {
+          "version": 1,
+          "name": "Publikt aktiebolag",
+          "type": "OYJ",
+          "registrationDate": "2017-05-12",
+          "endDate": null,
+          "language": "SE",
+          "source": 1
+        },
+        {
+          "version": 1,
+          "name": "Public limited company",
+          "type": null,
+          "registrationDate": "2017-05-12",
+          "endDate": null,
+          "language": "EN",
+          "source": 1
+        }
+      ],
+      "businessLines": [
+        {
+          "order": 0,
+          "version": 1,
+          "code": "64990",
+          "name": "Other financial service activities, except insurance and pension funding n.e.c.",
+          "registrationDate": "2014-06-02",
+          "endDate": null,
+          "language": "EN",
+          "source": 2
+        },
+        {
+          "order": 0,
+          "version": 1,
+          "code": "64990",
+          "name": "Muualla luokittelemattomat rahoituspalvelut (pl. vakuutus- ja eläkevakuutustoiminta)",
+          "registrationDate": "2014-06-02",
+          "endDate": null,
+          "language": "FI",
+          "source": 2
+        },
+        {
+          "order": 0,
+          "version": 1,
+          "code": "64990",
+          "name": "Diverse övriga finansiella tjänster utom försäkring och pensionsverksamhet",
+          "registrationDate": "2014-06-02",
+          "endDate": null,
+          "language": "SE",
+          "source": 2
+        }
+      ],
+      "languages": [
+        {
+          "version": 1,
+          "name": "Finnish",
+          "registrationDate": "2014-07-09",
+          "endDate": null,
+          "language": "EN",
+          "source": 0
+        },
+        {
+          "version": 1,
+          "name": "Suomi",
+          "registrationDate": "2014-07-09",
+          "endDate": null,
+          "language": "FI",
+          "source": 0
+        },
+        {
+          "version": 1,
+          "name": "Finska",
+          "registrationDate": "2014-07-09",
+          "endDate": null,
+          "language": "SE",
+          "source": 0
+        }
+      ],
+      "registedOffices": [
+        {
+          "order": 0,
+          "version": 1,
+          "name": "HELSINKI",
+          "registrationDate": "2014-06-27",
+          "endDate": null,
+          "language": "EN",
+          "source": 0
+        },
+        {
+          "order": 0,
+          "version": 1,
+          "name": "HELSINKI",
+          "registrationDate": "2014-06-27",
+          "endDate": null,
+          "language": "FI",
+          "source": 0
+        },
+        {
+          "order": 0,
+          "version": 1,
+          "name": "HELSINGFORS",
+          "registrationDate": "2014-06-27",
+          "endDate": null,
+          "language": "SE",
+          "source": 0
+        }
+      ],
+      "contactDetails": [
+        {
+          "version": 1,
+          "value": "0103016000",
+          "type": "Puhelin",
+          "registrationDate": "2019-05-31",
+          "endDate": null,
+          "language": "FI",
+          "source": 0
+        },
+        {
+          "version": 1,
+          "value": "0103016000",
+          "type": "Telefon",
+          "registrationDate": "2019-05-31",
+          "endDate": null,
+          "language": "SE",
+          "source": 0
+        },
+        {
+          "version": 1,
+          "value": "0103016000",
+          "type": "Telephone",
+          "registrationDate": "2019-05-31",
+          "endDate": null,
+          "language": "EN",
+          "source": 0
+        },
+        {
+          "version": 1,
+          "value": "www.silmaasema.fi",
+          "type": "Kotisivun www-osoite",
+          "registrationDate": "2019-05-31",
+          "endDate": null,
+          "language": "FI",
+          "source": 0
+        },
+        {
+          "version": 1,
+          "value": "www.silmaasema.fi",
+          "type": "www-adress",
+          "registrationDate": "2019-05-31",
+          "endDate": null,
+          "language": "SE",
+          "source": 0
+        },
+        {
+          "version": 1,
+          "value": "www.silmaasema.fi",
+          "type": "Website address",
+          "registrationDate": "2019-05-31",
+          "endDate": null,
+          "language": "EN",
+          "source": 0
+        }
+      ],
+      "registeredEntries": [
+        {
+          "authority": 1,
+          "register": 4,
+          "status": 1,
+          "registrationDate": "2014-07-09",
+          "endDate": null,
+          "statusDate": "2019-12-12",
+          "language": "FI",
+          "description": "Rekisterissä"
+        },
+        {
+          "authority": 1,
+          "register": 4,
+          "status": 1,
+          "registrationDate": "2014-07-09",
+          "endDate": null,
+          "statusDate": "2019-12-12",
+          "language": "SE",
+          "description": "Registrerad"
+        },
+        {
+          "authority": 1,
+          "register": 4,
+          "status": 1,
+          "registrationDate": "2014-07-09",
+          "endDate": null,
+          "statusDate": "2019-12-12",
+          "language": "EN",
+          "description": "Registered"
+        },
+        {
+          "authority": 1,
+          "register": 5,
+          "status": 1,
+          "registrationDate": "2016-07-01",
+          "endDate": null,
+          "statusDate": "2017-03-09",
+          "language": "FI",
+          "description": "Rekisterissä"
+        },
+        {
+          "authority": 1,
+          "register": 5,
+          "status": 1,
+          "registrationDate": "2016-07-01",
+          "endDate": null,
+          "statusDate": "2017-03-09",
+          "language": "SE",
+          "description": "Registrerad"
+        },
+        {
+          "authority": 1,
+          "register": 5,
+          "status": 1,
+          "registrationDate": "2016-07-01",
+          "endDate": null,
+          "statusDate": "2017-03-09",
+          "language": "EN",
+          "description": "Registered"
+        },
+        {
+          "authority": 1,
+          "register": 6,
+          "status": 1,
+          "registrationDate": "2016-06-01",
+          "endDate": null,
+          "statusDate": "2016-07-28",
+          "language": "FI",
+          "description": "Liiketoiminnasta arvonlisäverovelvollinen"
+        },
+        {
+          "authority": 1,
+          "register": 6,
+          "status": 1,
+          "registrationDate": "2016-06-01",
+          "endDate": null,
+          "statusDate": "2016-07-28",
+          "language": "SE",
+          "description": "Momsskyldig för rörelseverksamhet"
+        },
+        {
+          "authority": 1,
+          "register": 6,
+          "status": 1,
+          "registrationDate": "2016-06-01",
+          "endDate": null,
+          "statusDate": "2016-07-28",
+          "language": "EN",
+          "description": "VAT-liable for business activity"
+        },
+        {
+          "authority": 1,
+          "register": 7,
+          "status": 1,
+          "registrationDate": "2017-01-01",
+          "endDate": null,
+          "statusDate": "2018-05-02",
+          "language": "FI",
+          "description": "Rekisterissä"
+        },
+        {
+          "authority": 1,
+          "register": 7,
+          "status": 1,
+          "registrationDate": "2017-01-01",
+          "endDate": null,
+          "statusDate": "2018-05-02",
+          "language": "SE",
+          "description": "Registrerad"
+        },
+        {
+          "authority": 1,
+          "register": 7,
+          "status": 1,
+          "registrationDate": "2017-01-01",
+          "endDate": null,
+          "statusDate": "2018-05-02",
+          "language": "EN",
+          "description": "Registered"
+        },
+        {
+          "authority": 2,
+          "register": 1,
+          "status": 1,
+          "registrationDate": "2014-06-27",
+          "endDate": null,
+          "statusDate": "2014-06-27",
+          "language": "FI",
+          "description": "Rekisterissä"
+        },
+        {
+          "authority": 2,
+          "register": 1,
+          "status": 1,
+          "registrationDate": "2014-06-27",
+          "endDate": null,
+          "statusDate": "2014-06-27",
+          "language": "SE",
+          "description": "Registrerad"
+        },
+        {
+          "authority": 2,
+          "register": 1,
+          "status": 1,
+          "registrationDate": "2014-06-27",
+          "endDate": null,
+          "statusDate": "2014-06-27",
+          "language": "EN",
+          "description": "Registered"
+        },
+        {
+          "authority": 2,
+          "register": 1,
+          "status": 2,
+          "registrationDate": "2014-06-18",
+          "endDate": "2014-06-26",
+          "statusDate": "2014-06-23",
+          "language": "FI",
+          "description": "Rekisteröimätön"
+        },
+        {
+          "authority": 2,
+          "register": 1,
+          "status": 2,
+          "registrationDate": "2014-06-18",
+          "endDate": "2014-06-26",
+          "statusDate": "2014-06-23",
+          "language": "SE",
+          "description": "Oregistrerad"
+        },
+        {
+          "authority": 2,
+          "register": 1,
+          "status": 2,
+          "registrationDate": "2014-06-18",
+          "endDate": "2014-06-26",
+          "statusDate": "2014-06-23",
+          "language": "EN",
+          "description": "Unregistered"
+        }
+      ],
+      "businessIdChanges": [
+        {
+          "changeDate": "2017-01-01",
+          "change": "FUU",
+          "oldBusinessId": "2629141-6",
+          "newBusinessId": "2627773-7",
+          "language": null,
+          "description": null,
+          "source": 1
+        },
+        {
+          "changeDate": "2017-01-02",
+          "change": "44",
+          "oldBusinessId": "2629141-6",
+          "newBusinessId": "2627773-7",
+          "language": null,
+          "description": null,
+          "source": 2
+        }
+      ]
+    }
+  ]
+}

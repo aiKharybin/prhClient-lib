@@ -17,6 +17,11 @@ import java.util.stream.StreamSupport;
 
 import static com.kharybin.prhclient.lib.util.PrhRestTemplateBuilder.getConfiguredRestTemplate;
 
+/**
+Implementation using Jackson parser and Spring Rest template
+throws {@link com.kharybin.prhclient.lib.exception.PrhClientRuntimeException subs}
+throws {@link java.lang.IllegalArgumentException}
+**/
 public class PrhClientImpl implements PrhClient {
 
     private final RestTemplate restTemplate;

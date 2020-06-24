@@ -1,6 +1,8 @@
 package com.kharybin.prhclient.lib.exception;
 
-public class EmptyNodeRuntimeException extends RuntimeException{
+
+//exception for absence of essential nodes
+public class EmptyNodeRuntimeException extends PrhClientRuntimeException{
 
     public EmptyNodeRuntimeException(String message) {
         super(message);

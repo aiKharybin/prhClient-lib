@@ -2,7 +2,8 @@ package com.kharybin.prhclient.lib.exception;
 
 import org.springframework.http.HttpStatus;
 
-public class HttpRequestRuntimeException extends RuntimeException{
+//exception for all http client issues
+public class HttpRequestRuntimeException extends PrhClientRuntimeException{
 
     final HttpStatus httpStatus;
 

@@ -13,6 +13,8 @@ import static org.springframework.http.HttpStatus.REQUEST_TIMEOUT;
 import static org.springframework.http.HttpStatus.Series.CLIENT_ERROR;
 import static org.springframework.http.HttpStatus.Series.SERVER_ERROR;
 
+//Simple rest template configurator
+//mostly needed for http client exceptions processing
 public class PrhRestTemplateBuilder {
 
     private PrhRestTemplateBuilder() {

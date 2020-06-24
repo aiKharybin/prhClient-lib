@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+//POJO describing data structure, annotations are for
+// setters/getters/constructors etc boilerplate code removing
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Data
 @AllArgsConstructor
