@@ -26,7 +26,7 @@ public class PrhClientImpl implements PrhClient {
     }
 
     @Override
-    public Optional<CompanyData> getCompanyDataById(String businessId) {
+    public CompanyData getCompanyDataById(String businessId) {
         if (businessId == null || !businessId.matches("^\\d{7}-\\d$"))
             throw new IllegalArgumentException("Entered business Id parameter does not match the format (ddddddd-d)");
         JsonNode response = restTemplate.getForObject(businessId, JsonNode.class);
@@ -34,7 +34,7 @@ public class PrhClientImpl implements PrhClient {
         return parseJsonForCompanyData(response);
     }
 
-    Optional<CompanyData> parseJsonForCompanyData(JsonNode json) {
+    CompanyData parseJsonForCompanyData(JsonNode json) {
         JsonNode resultsNode = json.get("results");
         if (isNodeEmpty(resultsNode))
             throw new EmptyNodeRuntimeException("Node you are trying to parse is null or empty");
@@ -43,22 +43,16 @@ public class PrhClientImpl implements PrhClient {
             throw new EmptyNodeRuntimeException("Node you are trying to parse is null or empty");
         CompanyData companyData = new CompanyData();
         parseForName(companyDataNode).ifPresent(companyData::setName);
-        //setName(companyDataNode, companyData);
-        setAddress(companyDataNode, companyData);
-        setWebsite(companyDataNode, companyData);
+        parseForAddress(companyDataNode).ifPresent(companyData::setAddress);
         parseForWebsite(companyDataNode).ifPresent(companyData::setWebsite);
         parseForPrimaryBusinessLine(companyDataNode).ifPresent(companyData::setBusinessLine);
-        //setPrimaryBusinessLine(companyDataNode, companyData);
-
-        return Optional.of(companyData);
+        return companyData;
     }
 
     private boolean isNodeEmpty(JsonNode companyDataNode) {
-        return companyDataNode == null || companyDataNode.isNull() || companyDataNode.isEmpty();
-    }
-
-    void setName(JsonNode companyDataNode, CompanyData companyData) {
-        Optional.ofNullable(companyDataNode.get("name")).ifPresent(name -> companyData.setName(name.asText()));
+        return companyDataNode == null
+                || companyDataNode.isNull()
+                || (companyDataNode.isEmpty() && !companyDataNode.isValueNode());
     }
 
     Optional<String> parseForName(JsonNode companyDataNode) {
@@ -67,28 +61,14 @@ public class PrhClientImpl implements PrhClient {
         return Optional.of(name.textValue());
     }
 
-    void setPrimaryBusinessLine(JsonNode companyDataNode, CompanyData companyData) {
-        JsonNode businessLineArrayNode = companyDataNode.get("businessLines");
-        if (businessLineArrayNode != null && !businessLineArrayNode.isEmpty() && businessLineArrayNode.isArray()) {
-            StreamSupport.stream(businessLineArrayNode.spliterator(), false)
-                    .filter(businessLineNode -> (businessLineNode.get("name") != null && businessLineNode.get("code") != null)
-                    ).findFirst().ifPresent(businessLineNode -> {
-                BusinessLine businessLine = new BusinessLine();
-                businessLine.setCode(businessLineNode.get("code").asText());
-                businessLine.setDescription(businessLineNode.get("name").asText());
-                companyData.setBusinessLine(businessLine);
-            });
-        }
-    }
-
     Optional<BusinessLine> parseForPrimaryBusinessLine(JsonNode companyDataNode) {
         JsonNode businessLineArrayNode = companyDataNode.get("businessLines");
         if (businessLineArrayNode != null && !businessLineArrayNode.isEmpty() && businessLineArrayNode.isArray()) {
             Optional<JsonNode> optionalBusinessLineNode = StreamSupport.stream(businessLineArrayNode.spliterator(), false)
                     .filter(businessLineNode -> (
-                                    isNodeEmpty(businessLineNode.get("name"))
-                                            && isNodeEmpty(businessLineNode.get("code"))
-                                            && isNodeEmpty(businessLineNode.get("order"))
+                                    !isNodeEmpty(businessLineNode.get("name"))
+                                            && !isNodeEmpty(businessLineNode.get("code"))
+                                            && !isNodeEmpty(businessLineNode.get("order"))
                                             && businessLineNode.asInt() == 0
                             )
                     ).findFirst();
@@ -102,24 +82,6 @@ public class PrhClientImpl implements PrhClient {
             }
         }
         return Optional.empty();
-    }
-
-    void setWebsite(JsonNode companyDataNode, CompanyData companyData) {
-        final Set<String> websiteTypes = Set.of("Kotisivun www-osoite", "www-adress", "Website address");
-        JsonNode contactsListNode = companyDataNode.get("contactDetails");
-        if (contactsListNode != null && !contactsListNode.isEmpty() && contactsListNode.isArray()) {
-            StreamSupport.stream(contactsListNode.spliterator(), false)
-                    .filter(contactNode -> {
-                                String contactType = contactNode.get("type").textValue();
-                                JsonNode valueNode = contactNode.get("value");
-                                return (contactType != null
-                                        && websiteTypes.contains(contactType)
-                                        && valueNode != null
-                                        && !valueNode.isNull());
-                            }
-                    ).findFirst().ifPresent(contactNode -> companyData.setWebsite(contactNode.get("value").asText())
-            );
-        }
     }
 
     Optional<String> parseForWebsite(JsonNode companyDataNode) {
@@ -141,16 +103,19 @@ public class PrhClientImpl implements PrhClient {
         return Optional.empty();
     }
 
-    void setAddress(JsonNode companyDataNode, CompanyData companyData) {
+    Optional<Address> parseForAddress(JsonNode companyDataNode) {
         JsonNode addressesNode = companyDataNode.get("addresses");
-        Optional<JsonNode> lastRegisteredAddressNode = StreamSupport.stream(addressesNode.spliterator(), false)
-                .max(Comparator.comparing(a -> LocalDate.parse(a.get("registrationDate").asText())));
-        lastRegisteredAddressNode.ifPresent(node -> {
-            try {
-                companyData.setAddress(new ObjectMapper().treeToValue(node, Address.class));
-            } catch (JsonProcessingException e) {
-                throw new JsonParsingRuntimeException("Error encountered during addresses branch parsing, please check API for updates", e);
+        if (addressesNode != null && !addressesNode.isEmpty() && addressesNode.isArray()) {
+            Optional<JsonNode> lastRegisteredAddressNode = StreamSupport.stream(addressesNode.spliterator(), false)
+                    .max(Comparator.comparing(addressNode -> LocalDate.parse(addressNode.get("registrationDate").asText())));
+            if (lastRegisteredAddressNode.isPresent()) {
+                try {
+                    return Optional.of(new ObjectMapper().treeToValue(lastRegisteredAddressNode.get(), Address.class));
+                } catch (JsonProcessingException e) {
+                    throw new JsonParsingRuntimeException("Error encountered during addresses branch parsing, please check API for updates", e);
+                }
             }
-        });
+        }
+        return Optional.empty();
     }
 }
